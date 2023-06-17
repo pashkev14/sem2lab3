@@ -1,0 +1,16 @@
+1000
+
+bool checkFiles(Files* files) {
+	files->logFile << "Программа начала свою работу.\nПроизводится попытка открыть входные файлы.\n";
+	if (files->sourceFile.is_open() && files->insertFile.is_open()) return true;
+	if (!files->sourceFile.is_open()) {
+		files->logFile << "Входной файл 1 не найден.\n";
+		files->outFile << "Ошибка: входной файл 1 не найден.\n";
+	}
+	if (!files->insertFile.is_open()) {
+		files->logFile << "Входной файл 2 не найден.\n";
+		files->outFile << "Ошибка: входной файл 2 не найден.";
+	}
+	files->logFile << "Программа завершила свою работу.";
+	return false;
+}
